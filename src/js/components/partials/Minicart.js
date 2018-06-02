@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import MinicartItem from './MinicartItem';
 
@@ -9,30 +10,12 @@ export default class Minicart extends Component {
     super();
   }
 
-  getDropdownList(items) {
-    let newArray = [];
-    let set = [];
-
+  countItems(items) {
+    let count = 0;
     for (let i = 0; i < items.length; i++) {
-      const self =  items[i];
-      const indexOf = set.indexOf(self.code);
-
-      if (indexOf > -1) {
-        newArray[indexOf].quantity += 1;
-      } else {
-        self.quantity = 1;
-        newArray = newArray.concat(self);
-        set = set.concat(self.code)
-      }
+      count += items[i].quantity;
     }
-
-    return (
-      <ul>
-        {newArray.map( (item, index) => (
-          <MinicartItem item={item} key={index} />
-        ))}
-      </ul>
-    );
+    return count;
   }
 
   render() {
@@ -43,10 +26,24 @@ export default class Minicart extends Component {
           {
             ( ({cartItems}) => (
               <React.Fragment>
-                <span>{cartItems.length}</span>
+                <span>{this.countItems(cartItems)}</span>
                 {cartItems.length > 0 ? 
                     <div className="header-minicart-dropdown">
-                      {this.getDropdownList(cartItems)}
+                      <ul>
+                        {cartItems.map( (item, index) => (
+                          <MinicartItem item={item} key={index} />
+                        ))}
+                      </ul>
+                      <div className="header-minicart-footer">
+                        <div>
+                          Showing 1 of XX
+                        </div>
+
+                        <div>
+                          <Link to="/cart" className="btn primary sm">Go To Cart</Link>
+                        </div>
+                      </div>
+                      
                     </div>
                   :
                     ''
