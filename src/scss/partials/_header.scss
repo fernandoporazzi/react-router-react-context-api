@@ -27,9 +27,12 @@
 
 .header-minicart {
   position: relative;
+  width: 50px;
 
   span {
-    cursor: default
+    text-align: right;
+    cursor: default;
+    display: block;
   }
 
   &:hover {
@@ -45,7 +48,7 @@
   right: 0;
   background: $minicart-background-color;
   border: 1px solid #dedede;
-  // top: 38px;
+  padding: 0 0 10px;
   display: none;
 
   li {
@@ -56,14 +59,14 @@
     &:last-child {
       padding-bottom: 10px;
     }
-  }
 
-  a {
-    display: flex;
-    background: $white;
-    padding: 10px;
-    text-decoration: none;
-    font-size: 15px;
+    a {
+      display: flex;
+      background: $white;
+      padding: 10px;
+      text-decoration: none;
+      font-size: 15px;
+    }
   }
 }
 
@@ -82,5 +85,15 @@
     &:last-child {
       margin: 0;
     }
+  }
+}
+
+.header-minicart-footer {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    text-decoration: none;
   }
 }

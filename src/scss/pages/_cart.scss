@@ -1,0 +1,23 @@
+.cart-content {
+  max-width: 1300px;
+  width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.cart-products {
+  flex: 1;
+  display: flex;
+  padding: 8px;
+}
+
+.cart-sidebar {
+  width: 400px;
+  padding: 8px;
+}
+
+.cart-box {
+  background: $white;
+  width: 100%;
+}

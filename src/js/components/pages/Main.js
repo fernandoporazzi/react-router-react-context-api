@@ -5,6 +5,7 @@ import Home from './home/Home';
 import About from './about/About';
 import Category from './category/Category';
 import Product from './product/Product';
+import Cart from './cart/Cart';
 
 export default class Main extends Component {
   constructor() {
@@ -21,6 +22,7 @@ export default class Main extends Component {
         <Route path="/c/:category" component={Category} />
 
         <Route path="/p/:product" component={Product} />
+        <Route path="/cart" component={Cart} />
       </main>
     )
   }
