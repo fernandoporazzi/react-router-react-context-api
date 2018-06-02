@@ -1,0 +1,62 @@
+.loading-placeholder {
+  padding: 0 40px;
+  
+  background: linear-gradient(-45deg, $loading-placeholder-one, $loading-placeholder-two);
+  background-size: 400% 400%;
+  animation: Gradient 3s ease infinite;
+
+  &.title {
+    height: 25px;;
+  }
+
+  &.li {
+    margin: 5px 0;
+  }
+
+  &.button {
+    width: 49%;
+    height: 40px;
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+.btn {
+  border: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &.primary {
+    background: $button-background-primary;
+    color: $button-color-primary;
+  }
+
+  &.secondary {
+    background: $button-background-secondary;
+    color: $button-color-secondary;
+  }
+
+  &.sm {
+    padding: 5px;
+  }
+
+  &.md {
+    padding: 10px;
+    font-size: 14px
+  }
+
+  &.lg {
+    padding: 15px;
+  }
+}
+

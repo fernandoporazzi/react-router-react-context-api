@@ -1,0 +1,31 @@
+*,
+*:before,
+*:after, {
+  box-sizing: border-box;
+}
+
+html,
+body,
+h1, h2, h3, h4, h5, h6,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  background: $body-background-color;
+  font-family: 'Roboto', sans-serif;
+  color: $text-color-primary
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
