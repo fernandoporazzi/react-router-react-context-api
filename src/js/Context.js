@@ -38,6 +38,28 @@ class ContextProvider extends Component {
           item.quantity = 1;
           this.setState( (state) => ({cartItems: state.cartItems.concat(item)}) )
         }
+      },
+      changeQuantity: (code, operation) => {
+        let { cartItems } = this.state;
+        let changed = false;
+
+        for (let i = 0; i < cartItems.length; i++) {
+          if (cartItems[i].code === code) {
+            if (operation === 'plus') {
+              cartItems[i].quantity += 1;
+              changed = true;
+            }
+            if (operation === 'minus') {
+              if (cartItems[i].quantity > 1) {
+                cartItems[i].quantity -= 1;
+                changed = true;
+              }
+            }
+
+            break;
+          }
+        }
+        changed && this.setState({cartItems});
       }
     }
   }

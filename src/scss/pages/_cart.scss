@@ -21,3 +21,33 @@
   background: $white;
   width: 100%;
 }
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.cart-item-detail {
+  flex: 1;
+  padding: 0 0 0 30px
+}
+
+.cart-item-img,
+.cart-item-price,
+.cart-item-qty,
+.cart-item-total {
+  width: 100px;
+  text-align: center;
+}
+
+.cart-item-qty {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .btn {
+    width: 34px;
+  }
+}

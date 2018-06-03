@@ -6,6 +6,8 @@ import CartNotEmpty from './CartNotEmpty';
 
 export default class Cart extends Component {
   render() {
+    console.log('Cart render');
+
     return (
       <div className="cart">
         <div className="cart-content">
