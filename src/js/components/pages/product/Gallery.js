@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { getThumbnails, getGalleryImages } from '../../../services/image';
 export default class Gallery extends Component {
   constructor() {
     super();
@@ -8,7 +8,7 @@ export default class Gallery extends Component {
 
     this.state = {
       thumbnails: [],
-      big: [],
+      galleryImages: [],
       activeIndex: 0
     }
   }
@@ -24,9 +24,9 @@ export default class Gallery extends Component {
   }
 
   filterImages() {
-    const thumbnails = this.props.images.filter(image => image.format === 'thumbnail');
-    const big = this.props.images.filter(image => image.format === 'product')
-    this.setState({thumbnails, big})
+    const { images } = this.props;
+    this.setState(getGalleryImages(images))
+    this.setState(getThumbnails(images))
   }
 
   changeImage(index) {
@@ -34,7 +34,7 @@ export default class Gallery extends Component {
   }
 
   render() {
-    let big = this.state.big[this.state.activeIndex] ? <img src={this.state.big[this.state.activeIndex].url} /> : ''
+    let galleryImages = this.state.galleryImages[this.state.activeIndex] ? <img src={this.state.galleryImages[this.state.activeIndex].url} /> : ''
     
     const thumbs = this.state.thumbnails.map((image, index) => (
       <div key={index} onClick={() => this.changeImage(index)} className={`pdp-thumbs-item` + (index === this.state.activeIndex ? ' active' : '')}>
@@ -46,7 +46,7 @@ export default class Gallery extends Component {
       
       <React.Fragment>
         <div className="pdp-gallery-big">
-          {big}
+          {galleryImages}
         </div>
         
         <div className="pdp-gallery-thumbs">

@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 
 import { Consumer } from '../../../Context';
 
+import { getThumbnails } from '../../../services/image';
+
 export default class CartItem extends Component {
 
   render() {
     console.log('CartItem render');
 
     const { data } = this.props;
-    const image = data.images.find(image => image.format === 'thumbnail' && image.galleryIndex === 0);
+    const { thumbnails } = getThumbnails(data.images);
+    const image = thumbnails.find(thumb => thumb.galleryIndex === 0);
 
     return (
       <div className="cart-item">
